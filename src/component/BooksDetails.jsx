@@ -1,4 +1,6 @@
 import { useLoaderData, useParams } from "react-router-dom"
+import WishListBooks from "./WishListBooks";
+import ReadBooks from "./ReadBooks";
 
 const BooksDetails = () => {
   const books = useLoaderData();
@@ -30,8 +32,8 @@ const BooksDetails = () => {
         <p className="mt-3"> <span className="font-normal mr-36 text-[#131313B3] opacity-70">Rating:</span> <span className="font-semibold">{rating}</span></p>
 
         <div className="mt-8 mb-4">
-        <button className="btn w-24 font-semibold mr-4">Read</button>
-        <button className="btn w-32 bg-[#50B1C9] text-white font-semibold">WishList</button>
+        <button className="btn w-24 font-semibold mr-4" onClick={<ReadBooks></ReadBooks>}>Read</button>
+        <button className="btn w-32 bg-[#50B1C9] text-white font-semibold" onClick={<WishListBooks></WishListBooks>} >WishList</button>
         </div>
 
 
