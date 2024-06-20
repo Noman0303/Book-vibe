@@ -15,6 +15,7 @@ const saveReadBooks = bookId =>{
     }
 }
 
+
 const getStoredWishListedBook = () => {
     const storedWishListedBook = localStorage.getItem('WishListed-books')
     if (storedWishListedBook) {

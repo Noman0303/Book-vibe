@@ -8,7 +8,7 @@ const Book = ({ book }) => {
     const { bookId, image, tags, bookName, author, category, rating } = book;
 
     return (
-        <div>
+        <div className='m-4'>
 
             <Link to={`/book/${bookId}`} >
             <button className='border-2 rounded-2xl p-6 w-full'>
@@ -16,7 +16,7 @@ const Book = ({ book }) => {
                 <figure><img className='h-56 m-4' src={image} alt="books image" /></figure>
             </div>
             <div className="card-actions justify-start mt-4">
-                {tags && <div className="badge badge-outline">{tags}</div>}
+                {tags.map((tag,index) => <p key={index} className="badge badge-outline">{tag}</p>)}
             </div>
             <div className="mt-4 justify-start">
                 <h2 className="card-title">{bookName}</h2>
