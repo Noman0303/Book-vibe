@@ -1,12 +1,23 @@
 import { useLoaderData, useParams } from "react-router-dom"
-import WishListBooks from "./WishListBooks";
-import ReadBooks from "./ReadBooks";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { saveReadBooks, saveWishListedBooks } from "../Utility/localStorage";
+
 
 const BooksDetails = () => {
   const books = useLoaderData();
   const { bookId } = useParams();
   const idInt = parseInt(bookId);
   const book = books.find(book => book.bookId === idInt);
+
+  const handleReadBook = () => {
+    saveReadBooks (bookId);
+    toast ('Book added to Read Books section successfully');
+  };
+  const handleWishListedBook = () => {
+    saveWishListedBooks (bookId);
+    toast ('Book added to Wish listed Books section successfully');
+  };
 
 
   const { bookName, author, category, review, tags, totalPages, publisher, yearOfPublishing, rating, image } = book;
@@ -32,13 +43,16 @@ const BooksDetails = () => {
         <p className="mt-3"> <span className="font-normal mr-36 text-[#131313B3] opacity-70">Rating:</span> <span className="font-semibold">{rating}</span></p>
 
         <div className="mt-8 mb-4">
-        <button className="btn w-24 font-semibold mr-4" onClick={<ReadBooks></ReadBooks>}>Read</button>
-        <button className="btn w-32 bg-[#50B1C9] text-white font-semibold" onClick={<WishListBooks></WishListBooks>} >WishList</button>
+        
+        <button className="btn w-24 font-semibold mr-4" onClick={handleReadBook} >Read</button>
+              
+        <button className="btn w-32 bg-[#50B1C9] text-white font-semibold" onClick={handleWishListedBook}  >WishList</button>
+  
+        
         </div>
-
-
+        
       </div>
-
+      <ToastContainer />
     </div>
 
   )
