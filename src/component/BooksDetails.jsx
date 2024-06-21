@@ -14,11 +14,11 @@ const BooksDetails = () => {
     const readBooks = getStoredReadBook();
     const wishListedBooks = getStoredWishListedBook();
 
-    if (!readBooks.includes(bookId) && !wishListedBooks.includes(bookId)) {
-      saveReadBooks(bookId);
+    if (!readBooks.includes(idInt) && !wishListedBooks.includes(idInt)) {
+      saveReadBooks(idInt);
       toast.success ('Book added to Read Books section successfully');
     }
-    else if (readBooks.includes(bookId)) {
+    else if (readBooks.includes(idInt)) {
       toast.error ('Sorry! This book is already added in "Read Book List".You cant add this book to "Read Book List" again')
     }
     else
@@ -32,11 +32,11 @@ const BooksDetails = () => {
     const readBooks = getStoredReadBook();
     const wishListedBooks = getStoredWishListedBook();
 
-    if (!readBooks.includes(bookId) && !wishListedBooks.includes(bookId)) {
-      saveWishListedBooks(bookId);
+    if (!readBooks.includes(idInt) && !wishListedBooks.includes(idInt)) {
+      saveWishListedBooks(idInt);
       toast.success('Book added to Wish list Books section successfully');
     }
-    else if (wishListedBooks.includes(bookId)) {
+    else if (wishListedBooks.includes(idInt)) {
       toast.error ('Sorry! This book is already added in "Wished Book List".You cant add this book to "Wished Book List" again')
     }
     else

@@ -1,6 +1,9 @@
-const WishListBooks = () => {
+const WishListBooks = ({wishListedBook}) => {
+
+  const {bookName} = wishListedBook;
+
   return (
-    <div>WishListBooks</div>
+    <div>{bookName}</div>
   )
 }
 

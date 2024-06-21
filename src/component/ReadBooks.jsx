@@ -1,7 +1,13 @@
-const ReadBooks = () => {
+const ReadBooks = ({readBook}) => {
+
+    const {bookName} = readBook;
+
   return (
-    <div>ReadBooks</div>
+    <div>
+        <h2>{bookName}</h2>
+    </div>
   )
 }
 
 export default ReadBooks
+
