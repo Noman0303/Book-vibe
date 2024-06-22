@@ -2,10 +2,11 @@ import PropTypes from 'prop-types';
 import { LuMapPin } from "react-icons/lu";
 import { IoPeopleOutline } from "react-icons/io5";
 import { MdOutlineFindInPage } from "react-icons/md";
+import { Link } from 'react-router-dom';
 
 const ReadBooks = ({ readBook }) => {
 
-    const { bookName, image, author, tags, yearOfPublishing, publisher, totalPages, category, rating } = readBook;
+    const { bookId, bookName, image, author, tags, yearOfPublishing, publisher, totalPages, category, rating } = readBook;
 
     return (
         <div className='w-full border-2 flex flex-col lg:flex-row  p-6 mt-6 rounded-2xl'>
@@ -42,7 +43,9 @@ const ReadBooks = ({ readBook }) => {
 
                     <p className='text-[#FFAC33] mt-4 rounded-full bg-[#FFAC3326] bg-opacity-15 text-base mr-3 btn'>Rating : {rating} </p>
 
+                    <Link to={`/book/${bookId}`} >
                     <button className='btn mt-4 rounded-full bg-[#23BE0A] text-white text-base'>View Details</button>
+                    </Link>
 
                 </div>
 
